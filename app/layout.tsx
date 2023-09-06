@@ -19,10 +19,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-        {children}
-      </ThemeProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          storageKey="makeup-studio-theme"
+          enableSystem={false}
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
