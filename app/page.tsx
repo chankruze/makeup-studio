@@ -1,13 +1,13 @@
-import clsx from 'clsx';
 import { ArrowUpRight, Menu } from 'lucide-react';
 
 import { StackedImageCard } from '@/components/stacked-image-card';
 import { Button } from '@/components/ui/button';
 import { cinzelDecorative } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
 
 export default async function Home() {
   return (
-    <div className="grid h-screen grid-cols-3 grid-rows-3 p-[3vw]">
+    <div className="grid h-screen grid-cols-3 gap-16 p-[3vw] lg:grid-rows-3 lg:gap-0 lg:overflow-hidden">
       {/* logo */}
       <div className="col-start-1 row-start-1">
         <div className="grid h-16 w-16 grid-cols-4 grid-rows-4 bg-white">
@@ -43,7 +43,7 @@ export default async function Home() {
         />
       </div> */}
       {/* explore gallery */}
-      <div className="relative col-start-2 row-span-3 row-start-1 grid place-content-center">
+      <div className="relative col-span-3 col-start-1 row-start-2 grid place-content-center lg:col-span-1 lg:col-start-2 lg:row-span-3 lg:row-start-1">
         <StackedImageCard />
         <Button
           variant="secondary"
@@ -56,17 +56,18 @@ export default async function Home() {
         </Button>
       </div>
       {/* heading */}
+      {/* TODO: fix (bug) -> col-span-3 on mobile and col-span-2 on lg not working */}
       <div
-        className={clsx(
-          'col-span-2 col-start-1 row-start-3 flex flex-col justify-end gap-6',
+        className={cn(
+          'col-span-2 col-start-1 flex flex-col justify-end lg:row-start-3 lg:gap-6',
           cinzelDecorative.className
         )}
       >
-        <p className="text-7xl font-semibold">Mehndi &amp;</p>
-        <p className="text-7xl font-semibold">Bridal Makeup</p>
+        <p className="text-4xl font-semibold lg:text-7xl">Mehndi &amp;</p>
+        <p className="text-4xl font-semibold lg:text-7xl">Bridal Makeup</p>
       </div>
       {/* description and cta */}
-      <div className="col-start-3 row-start-3  grid place-content-end gap-8 pl-12 ">
+      <div className="col-span-3 col-start-1 grid gap-8 lg:col-span-1 lg:col-start-3 lg:row-start-3 lg:place-content-end lg:pl-12">
         <p className="text-lg first-letter:pl-[40%]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolorum
           molestiae error minus at. Nisi laboriosam debitis a cum error eveniet
